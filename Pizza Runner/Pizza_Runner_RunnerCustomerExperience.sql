@@ -11,7 +11,7 @@ ORDER BY 1;
 -- 2.What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 SELECT 
 	ro.runner_id AS runner,
-	COUNT(ro.order_id) AS no_of_orders, 
+	COUNT(DISTINCT ro.order_id) AS no_of_orders, 
 	AVG(ro.pickup_time::timestamp - co.order_time) AS average_pickup_time
 FROM pizza_runner.runner_orders AS ro
 JOIN pizza_runner.customer_orders AS co
